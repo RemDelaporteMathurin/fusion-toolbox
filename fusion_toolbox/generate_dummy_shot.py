@@ -309,4 +309,5 @@ if __name__ == "__main__":
     for month in months:
         for day in days:
             prefix = f"{year}{month:02d}{day:02d}"
-            generate_multiple_shots(num_shots=4, shot_prefix=prefix)
+            Q = 2/max(months)*month + 1
+            generate_multiple_shots(num_shots=4, shot_prefix=prefix, Q=Q)
