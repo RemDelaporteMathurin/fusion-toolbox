@@ -56,7 +56,7 @@ def plot_shot(shot_number):
 
 
 if __name__ == "__main__":
-    plot_shot('674546')
+    plot_shot('2023010101')
 
     # Adjust subplot spacing
     plt.tight_layout(rect=[0, 0, 1, 0.97])
