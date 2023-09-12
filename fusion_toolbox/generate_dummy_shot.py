@@ -183,15 +183,11 @@ def generate_data(num_time_points, start_current, plateau_current, end_current,
 def write_to_csv(data, filename):
     with open(filename, mode='w', newline='') as file:
         writer = csv.writer(file)
-        writer.writerow(['Time (s)', 'Plasma_Current (A)', 'Plasma_Density (particlesm3)', 'Plasma_Temperature (K)',
-                         'Fusion_Power (W)', 'ICRH_Power (W)', 'Radiation_Power (W)', 'LHCD_Power (W)', 'NBI_Power (W)',
-                         'Total_Heating_Power (W)', 'Injection_Rate'])
+        writer.writerow(list(data.keys()))
         for i in range(len(data['Time (s)'])):
             row = []
-            for key in ['Time (s)', 'Plasma_Current (A)', 'Plasma_Density (particlesm3)', 'Plasma_Temperature (K)',
-                        'Fusion_Power (W)', 'ICRH_Power (W)', 'Radiation_Power (W)', 'LHCD_Power (W)', 'NBI_Power (W)',
-                        'Total_Heating_Power (W)', 'Injection_Rate']:
-                row.append(data[key][i])
+            for quantity in data.values():
+                row.append(quantity[i])
             writer.writerow(row)
 
 
