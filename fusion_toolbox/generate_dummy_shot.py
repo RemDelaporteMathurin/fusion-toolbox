@@ -184,7 +184,8 @@ def write_to_csv(data, filename):
     with open(filename, mode='w', newline='') as file:
         writer = csv.writer(file)
         writer.writerow(list(data.keys()))
-        for i in range(len(data['Time (s)'])):
+        nb_rows = len(data[list(data.keys())[0]])
+        for i in range(nb_rows):
             row = []
             for quantity in data.values():
                 row.append(quantity[i])
