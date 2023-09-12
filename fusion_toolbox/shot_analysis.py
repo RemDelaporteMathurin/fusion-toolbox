@@ -35,3 +35,4 @@ def compute_average_fusion_power(shots):
     Args:
         shots (list): shot numbers
     """
+    pass
