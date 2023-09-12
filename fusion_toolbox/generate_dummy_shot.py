@@ -3,7 +3,7 @@ import random
 import numpy as np
 import os
 
-def generate_multiple_shots(num_shots=10):
+def generate_multiple_shots(num_shots=10, shot_prefix="2023912"):
     # Create a directory to store the CSV files
     if not os.path.exists("shots"):
         os.makedirs("shots")
@@ -11,7 +11,7 @@ def generate_multiple_shots(num_shots=10):
     for shot_number in range(1, num_shots + 1):
 
         # Generate a unique 6-digit shot number for each shot
-        unique_shot_number = ''.join(str(random.randint(0, 9)) for _ in range(6))
+        unique_shot_number = shot_prefix + f'{shot_number:02d}'
 
         # Specify the start, plateau, and end values for each quantity
         start_current = 0
@@ -184,4 +184,10 @@ def write_to_csv(data, filename):
 
 
 if __name__ == "__main__":
-    generate_multiple_shots(num_shots=10)
+    year = 2023
+    months = [1, 2, 3, 4, 5]
+    days = range(1, 10)
+    for month in months:
+        for day in days:
+            prefix = f"{year}{month:02d}{day:02d}"
+            generate_multiple_shots(num_shots=4, shot_prefix=prefix)
