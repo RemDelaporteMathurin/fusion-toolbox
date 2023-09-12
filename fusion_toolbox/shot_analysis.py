@@ -36,3 +36,14 @@ def compute_average_fusion_power(shots):
         shots (list): shot numbers
     """
     pass
+
+def compute_fusion_gain(shot):
+    pass
+
+def date_of_shot(shot):
+    """Returns the date of a shot as a datetime object
+
+    Args:
+        shot (str): the shot number
+    """
+    pass
